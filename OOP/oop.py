@@ -34,3 +34,30 @@ obj = Sub("ABC", 4, "EFG!")
 obj.public()
 obj.accessProtected()
 obj.accessPrivate()
+
+
+class Country:
+    country_name = ""
+    country_capital = ""
+    country_currency = ""
+
+    def __init__(self, name):
+        self.country_name = name
+
+    def currency_capital(self, currency, capital):
+        self.country_currency = currency
+        self.country_capital = capital
+    
+    def print_data(self):
+        print("Country Name: ", self.country_name)
+        print("Country Currency: ", self.country_currency)
+        print("Country Capital: ", self.country_capital)
+
+UK = Country('UK')
+USA = Country("America")
+
+UK.currency_capital("British Pound", "London")
+USA.currency_capital("US Dollar", "Washington DC")
+UK.print_data()
+USA.print_data()
+
