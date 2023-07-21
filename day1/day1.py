@@ -7,4 +7,4 @@ def one(a, b):
 result = one(5, 10)
 
 
-print("Hello"[-1])
+print(3 * (3 + 3) / 3 - 3)
