@@ -5,36 +5,40 @@ import random
 class Hangman:
 
     def __init__(self):
-        self.word = ''
+        self.randomWords = random.choice(['hummus', 'Beetroot', 'Tzatziki', 'Watermelon'])
         self.display = []
 
-    def randomWord(self):
-        word_list = ['ardvark', 'lemming', 'crocodile', 'kangaroo']
-        random_word = random.choice(word_list)
-        self.word = random_word
-        for _ in range(len(random_word)):
-            self.display += "_"
-    
-    def checkWord(self):
+    def game(self):
+        for i in range(len(self.randomWords)):
+                self.display += '_'
+        print(self.randomWords)
+                
         lives = 8
         while lives > 0:
-            print(self.display)
-            letter = input("Choose letter: ").lower()
-            for position in range(len(self.word)):
-                if letter ==  self.word[position]:
-                    self.display[position] = letter
+            letter = input("Choose a word: ").lower()
+            for j in range(len(self.randomWords)):
+                if self.randomWords[j].lower() == letter:
+                    self.display[j] = letter
             
-            if letter not in self.word:
+            if letter not in self.randomWords:
                 lives -= 1
+                print(lives)
+                if lives == 0:
+                    print("You lose")
 
-            if ' '.join(self.display) == self.word:
+            print(self.display)
+
+            if "_" not in self.display:
                 print("You Win!")
-            elif lives == 0:
-                print("You lose!")
-    
+                return
+        
+
+    def __str__(self):
+        return self.display
+
+
 hangman = Hangman()
-hangman.randomWord()
-hangman.checkWord()
-    
+hangman.game()
+
 
 
